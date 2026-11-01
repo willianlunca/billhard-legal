@@ -4,7 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Central de Suporte Billhard. Entre em contato para dúvidas, solicitações e assistência técnica.">
+
+  <meta
+    name="description"
+    content="Central de Suporte Billhard. Entre em contato para dúvidas, solicitações e assistência técnica."
+  >
+
   <title>Central de Suporte | Billhard</title>
 
   <style>
@@ -16,12 +21,18 @@
       --borda: #D8E0DA;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont,
-                   "Segoe UI", Arial, sans-serif;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
       background: var(--fundo);
       color: var(--texto);
       line-height: 1.6;
@@ -55,7 +66,7 @@
       border: 1px solid var(--borda);
       border-radius: 16px;
       padding: 32px;
-      box-shadow: 0 6px 24px rgba(0,0,0,.04);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, .04);
     }
 
     h2 {
@@ -69,7 +80,9 @@
       margin: 18px 0 7px;
     }
 
-    input, select, textarea {
+    input,
+    select,
+    textarea {
       display: block;
       width: 100%;
       padding: 12px 14px;
@@ -80,7 +93,9 @@
       border-radius: 8px;
     }
 
-    input:focus, select:focus, textarea:focus {
+    input:focus,
+    select:focus,
+    textarea:focus {
       outline: 2px solid var(--verde-claro);
       outline-offset: 1px;
     }
@@ -104,8 +119,14 @@
       cursor: pointer;
     }
 
-    button:hover { background: var(--verde-claro); }
-    button:disabled { opacity: .65; cursor: wait; }
+    button:hover {
+      background: var(--verde-claro);
+    }
+
+    button:disabled {
+      opacity: .65;
+      cursor: wait;
+    }
 
     .status {
       display: none;
@@ -127,6 +148,20 @@
       color: #8B2525;
     }
 
+    .aviso-exclusao {
+      display: none;
+      background: #EAF3ED;
+      border-left: 4px solid var(--verde);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    .aviso-exclusao.visivel {
+      display: block;
+    }
+
     .informacao {
       margin-top: 25px;
       padding-top: 20px;
@@ -134,7 +169,9 @@
       font-size: 14px;
     }
 
-    a { color: #006A42; }
+    a {
+      color: #006A42;
+    }
 
     footer {
       text-align: center;
@@ -144,14 +181,23 @@
     }
 
     @media (max-width: 480px) {
-      header { padding: 36px 16px; }
-      header h1 { font-size: 26px; }
-      .card { padding: 22px; }
+      header {
+        padding: 36px 16px;
+      }
+
+      header h1 {
+        font-size: 26px;
+      }
+
+      .card {
+        padding: 22px;
+      }
     }
   </style>
 </head>
 
 <body>
+
   <header>
     <h1>Billhard</h1>
     <p>Gestão e Tecnologia</p>
@@ -159,6 +205,7 @@
 
   <main>
     <section class="card">
+
       <h2>Central de Suporte</h2>
 
       <p>
@@ -167,15 +214,40 @@
         receberá sua solicitação.
       </p>
 
-      <form id="formSuporte"
-            action="https://formspree.io/f/xeaarzvz"
-            method="POST">
+      <div
+        id="avisoExclusao"
+        class="aviso-exclusao"
+        role="note"
+      >
+        <strong>Solicitação de exclusão de conta</strong>
 
-        <input type="hidden"
-               name="_subject"
-               value="Nova solicitação de suporte - Billhard">
+        <p>
+          Para solicitar a exclusão da sua conta Billhard,
+          informe o nome e o e-mail associados ao cadastro.
+        </p>
+
+        <p>
+          Nossa equipe poderá solicitar informações adicionais
+          para confirmar sua identidade antes de processar
+          a exclusão.
+        </p>
+      </div>
+
+      <form
+        id="formSuporte"
+        action="https://formspree.io/f/xeaarzvz"
+        method="POST"
+      >
+
+        <input
+          type="hidden"
+          id="assuntoEmail"
+          name="_subject"
+          value="Nova solicitação de suporte - Billhard"
+        >
 
         <label for="nome">Nome completo</label>
+
         <input
           id="nome"
           name="nome"
@@ -183,20 +255,31 @@
           autocomplete="name"
           maxlength="120"
           required
-          placeholder="Digite seu nome">
+          placeholder="Digite seu nome"
+        >
 
         <label for="email">E-mail de contato</label>
+
         <input
           id="email"
           name="email"
           type="email"
           autocomplete="email"
           required
-          placeholder="seuemail@exemplo.com">
+          placeholder="seuemail@exemplo.com"
+        >
 
         <label for="assunto">Assunto</label>
-        <select id="assunto" name="assunto" required>
-          <option value="">Selecione um assunto</option>
+
+        <select
+          id="assunto"
+          name="assunto"
+          required
+        >
+          <option value="">
+            Selecione um assunto
+          </option>
+
           <option>Problema técnico</option>
           <option>Exclusão de conta</option>
           <option>Acesso à conta</option>
@@ -207,39 +290,57 @@
           <option>Outros assuntos</option>
         </select>
 
-        <label for="mensagem">Descreva sua solicitação</label>
+        <label for="mensagem">
+          Descreva sua solicitação
+        </label>
+
         <textarea
           id="mensagem"
           name="message"
           maxlength="5000"
           required
-          placeholder="Descreva sua dúvida ou solicitação..."></textarea>
+          placeholder="Descreva sua dúvida ou solicitação..."
+        ></textarea>
 
-        <button id="botaoEnviar" type="submit">
+        <button
+          id="botaoEnviar"
+          type="submit"
+        >
           Enviar solicitação
         </button>
 
-        <div id="statusEnvio"
-             class="status"
-             role="status"
-             aria-live="polite"></div>
+        <div
+          id="statusEnvio"
+          class="status"
+          role="status"
+          aria-live="polite"
+        ></div>
+
       </form>
 
       <div class="informacao">
+
         <p>
           Você também pode entrar em contato pelo e-mail:
+
           <a href="mailto:contato@billhard.com.br">
             contato@billhard.com.br
           </a>
         </p>
+
         <p>
-          As informações enviadas serão utilizadas para
-          atendimento da sua solicitação.
+          As informações enviadas serão utilizadas
+          para atendimento da sua solicitação.
         </p>
+
         <p>
-          <a href="../">Política de Privacidade</a>
+          <a href="../">
+            Política de Privacidade
+          </a>
         </p>
+
       </div>
+
     </section>
   </main>
 
@@ -252,44 +353,119 @@
     const botao = document.getElementById("botaoEnviar");
     const status = document.getElementById("statusEnvio");
 
-    form.addEventListener("submit", async function(event) {
-      event.preventDefault();
+    const campoAssunto = document.getElementById("assunto");
+    const assuntoEmail = document.getElementById("assuntoEmail");
+    const campoMensagem = document.getElementById("mensagem");
+    const avisoExclusao = document.getElementById("avisoExclusao");
 
-      botao.disabled = true;
-      botao.textContent = "Enviando...";
-      status.className = "status";
-      status.textContent = "";
+    const parametros = new URLSearchParams(
+      window.location.search
+    );
 
-      try {
-        const resposta = await fetch(form.action, {
-          method: "POST",
-          body: new FormData(form),
-          headers: {
-            "Accept": "application/json"
-          }
-        });
+    // Identifica quando o usuário vem da página
+    // de exclusão de conta do Billhard.
+    const veioDaExclusao =
+      parametros.get("assunto") === "exclusao";
 
-        if (!resposta.ok) {
-          throw new Error("Falha no envio");
+    if (veioDaExclusao) {
+
+      campoAssunto.value =
+        "Solicitação de exclusão de conta";
+
+      assuntoEmail.value =
+        "Solicitação de exclusão de conta - Billhard";
+
+      campoMensagem.value =
+        "Solicito a exclusão da minha conta Billhard " +
+        "e dos dados pessoais associados, conforme " +
+        "a política de privacidade aplicável.";
+
+      avisoExclusao.classList.add("visivel");
+
+    }
+
+    // Atualiza o assunto do e-mail enviado ao Formspree.
+    campoAssunto.addEventListener("change", function() {
+
+      if (
+        campoAssunto.value ===
+        "Solicitação de exclusão de conta"
+      ) {
+        assuntoEmail.value =
+          "Solicitação de exclusão de conta - Billhard";
+      } else {
+        assuntoEmail.value =
+          "Nova solicitação de suporte - Billhard";
+      }
+
+    });
+
+    form.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+        if (!form.reportValidity()) {
+          return;
         }
 
-        form.reset();
-        status.className = "status sucesso";
-        status.textContent =
-          "Solicitação enviada com sucesso! " +
-          "Nossa equipe recebeu sua mensagem.";
+        botao.disabled = true;
+        botao.textContent = "Enviando...";
 
-      } catch (erro) {
-        status.className = "status erro";
-        status.textContent =
-          "Não foi possível enviar sua solicitação. " +
-          "Tente novamente ou entre em contato pelo e-mail " +
-          "contato@billhard.com.br.";
-      } finally {
-        botao.disabled = false;
-        botao.textContent = "Enviar solicitação";
+        status.className = "status";
+        status.textContent = "";
+
+        try {
+
+          const resposta = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: {
+              "Accept": "application/json"
+            }
+          });
+
+          if (!resposta.ok) {
+            throw new Error("Falha no envio");
+          }
+
+          form.reset();
+
+          status.className = "status sucesso";
+
+          status.textContent =
+            "Solicitação enviada com sucesso! " +
+            "Nossa equipe recebeu sua mensagem.";
+
+          // Mantém o assunto de exclusão selecionado
+          // caso o usuário tenha vindo pelo link.
+          if (veioDaExclusao) {
+            campoAssunto.value =
+              "Solicitação de exclusão de conta";
+
+            assuntoEmail.value =
+              "Solicitação de exclusão de conta - Billhard";
+          }
+
+        } catch (erro) {
+
+          status.className = "status erro";
+
+          status.textContent =
+            "Não foi possível enviar sua solicitação. " +
+            "Tente novamente ou entre em contato pelo e-mail " +
+            "contato@billhard.com.br.";
+
+        } finally {
+
+          botao.disabled = false;
+          botao.textContent = "Enviar solicitação";
+
+        }
       }
-    });
+    );
   </script>
+
 </body>
 </html>
