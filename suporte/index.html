@@ -4,32 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta
-    name="description"
-    content="Saiba como solicitar a exclusão de sua conta e dados pessoais no aplicativo Billhard."
-  >
-
-  <title>Exclusão de Conta e Dados | Billhard</title>
+  <meta name="description" content="Central de Suporte Billhard. Entre em contato para dúvidas, solicitações e assistência técnica.">
+  <title>Central de Suporte | Billhard</title>
 
   <style>
     :root {
       --verde: #00331F;
       --verde-claro: #07573A;
-      --fundo: #F5F8F6;
-      --texto: #20372D;
-      --texto-secundario: #526458;
-      --borda: #E1EAE4;
+      --fundo: #F5F7F5;
+      --texto: #24342B;
+      --borda: #D8E0DA;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Arial, sans-serif;
+                   "Segoe UI", Arial, sans-serif;
       background: var(--fundo);
       color: var(--texto);
       line-height: 1.6;
@@ -38,345 +30,265 @@
     header {
       background: var(--verde);
       color: white;
-      padding: 30px 20px;
-    }
-
-    .header-conteudo {
-      max-width: 700px;
-      margin: auto;
+      text-align: center;
+      padding: 52px 20px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 28px;
+      font-size: 32px;
     }
 
     header p {
-      margin: 4px 0 0;
-      opacity: 0.85;
-      font-size: 14px;
+      margin: 8px 0 0;
+      opacity: .85;
     }
 
     main {
-      max-width: 740px;
-      margin: 35px auto;
-      padding: 0 20px;
-    }
-
-    .titulo {
-      font-size: 30px;
-      line-height: 1.3;
-      color: var(--verde);
-      margin-bottom: 12px;
-    }
-
-    .descricao {
-      color: var(--texto-secundario);
-      margin-bottom: 26px;
+      max-width: 680px;
+      margin: 36px auto;
+      padding: 0 18px;
     }
 
     .card {
       background: white;
       border: 1px solid var(--borda);
-      border-radius: 14px;
-      padding: 24px;
-      margin-bottom: 18px;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.04);
     }
 
     h2 {
-      margin: 0 0 16px;
-      font-size: 20px;
+      margin-top: 0;
       color: var(--verde);
     }
 
-    p {
-      margin: 10px 0;
-    }
-
-    .passo {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin: 16px 0;
-    }
-
-    .numero {
-      width: 32px;
-      height: 32px;
-      min-width: 32px;
-      border-radius: 50%;
-      background: #E5F1E9;
-      color: var(--verde);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
-
-    .botao {
+    label {
       display: block;
-      text-align: center;
-      text-decoration: none;
+      font-weight: 600;
+      margin: 18px 0 7px;
+    }
+
+    input, select, textarea {
+      display: block;
+      width: 100%;
+      padding: 12px 14px;
+      font: inherit;
+      color: var(--texto);
+      background: white;
+      border: 1px solid #C6D2C9;
+      border-radius: 8px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--verde-claro);
+      outline-offset: 1px;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin-top: 24px;
+      border: none;
+      border-radius: 9px;
       background: var(--verde);
       color: white;
-      padding: 15px 20px;
-      border-radius: 9px;
+      font: inherit;
       font-weight: 600;
-      margin-top: 20px;
-      transition: background 0.2s;
+      cursor: pointer;
     }
 
-    .botao:hover {
-      background: var(--verde-claro);
-    }
+    button:hover { background: var(--verde-claro); }
+    button:disabled { opacity: .65; cursor: wait; }
 
-    .email {
-      color: var(--verde-claro);
-      font-weight: 600;
-      overflow-wrap: anywhere;
-    }
-
-    ul {
-      padding-left: 22px;
-    }
-
-    li {
-      margin: 12px 0;
-    }
-
-    .aviso {
-      background: #FFF8E9;
-      border-left: 4px solid #A97929;
-      border-radius: 6px;
-      padding: 16px;
-      margin-top: 20px;
+    .status {
+      display: none;
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 8px;
       font-size: 14px;
     }
 
+    .status.sucesso {
+      display: block;
+      background: #E5F4EA;
+      color: #185B34;
+    }
+
+    .status.erro {
+      display: block;
+      background: #FCEAEA;
+      color: #8B2525;
+    }
+
+    .informacao {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid var(--borda);
+      font-size: 14px;
+    }
+
+    a { color: #006A42; }
+
     footer {
       text-align: center;
-      color: #6A7D71;
-      padding: 25px 20px;
+      padding: 20px;
+      color: #65746A;
       font-size: 13px;
     }
 
     @media (max-width: 480px) {
-      header {
-        padding: 25px 18px;
-      }
-
-      .titulo {
-        font-size: 25px;
-      }
-
-      .card {
-        padding: 20px;
-      }
+      header { padding: 36px 16px; }
+      header h1 { font-size: 26px; }
+      .card { padding: 22px; }
     }
   </style>
 </head>
 
 <body>
-
   <header>
-    <div class="header-conteudo">
-      <h1>Billhard</h1>
-      <p>Privacidade e proteção de dados</p>
-    </div>
+    <h1>Billhard</h1>
+    <p>Gestão e Tecnologia</p>
   </header>
 
   <main>
-
-    <h1 class="titulo">
-      Exclusão de conta e dados
-    </h1>
-
-    <p class="descricao">
-      O Billhard respeita sua privacidade e oferece
-      meios para solicitar a exclusão da sua conta
-      e dos dados pessoais associados.
-    </p>
-
-    <!-- EXCLUSÃO PELO APLICATIVO -->
-
     <section class="card">
-
-      <h2>Excluir sua conta pelo aplicativo</h2>
+      <h2>Central de Suporte</h2>
 
       <p>
-        Você pode solicitar a exclusão da sua conta
-        diretamente pelo aplicativo Billhard.
+        Precisa de ajuda com o aplicativo Billhard?
+        Preencha o formulário abaixo e nossa equipe
+        receberá sua solicitação.
       </p>
 
-      <div class="passo">
-        <span class="numero">1</span>
-        <span>
-          Abra o aplicativo Billhard e entre na sua conta.
-        </span>
-      </div>
+      <form id="formSuporte"
+            action="https://formspree.io/f/xeaarzvz"
+            method="POST">
 
-      <div class="passo">
-        <span class="numero">2</span>
-        <span>
-          Acesse a seção <strong>Conta</strong>.
-        </span>
-      </div>
+        <input type="hidden"
+               name="_subject"
+               value="Nova solicitação de suporte - Billhard">
 
-      <div class="passo">
-        <span class="numero">3</span>
-        <span>
-          Selecione a opção
-          <strong>Excluir conta</strong>.
-        </span>
-      </div>
+        <label for="nome">Nome completo</label>
+        <input
+          id="nome"
+          name="nome"
+          type="text"
+          autocomplete="name"
+          maxlength="120"
+          required
+          placeholder="Digite seu nome">
 
-      <div class="passo">
-        <span class="numero">4</span>
-        <span>
-          Confirme sua identidade e leia
-          as informações sobre a exclusão.
-        </span>
-      </div>
+        <label for="email">E-mail de contato</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+          placeholder="seuemail@exemplo.com">
 
-      <div class="passo">
-        <span class="numero">5</span>
-        <span>
-          Confirme a exclusão definitiva da conta.
-        </span>
-      </div>
+        <label for="assunto">Assunto</label>
+        <select id="assunto" name="assunto" required>
+          <option value="">Selecione um assunto</option>
+          <option>Problema técnico</option>
+          <option>Acesso à conta</option>
+          <option>Gestão de manutenção</option>
+          <option>Integração com Nextcloud Deck</option>
+          <option>Solicitação de exclusão de conta</option>
+          <option>Sugestões e melhorias</option>
+          <option>Outros assuntos</option>
+        </select>
 
+        <label for="mensagem">Descreva sua solicitação</label>
+        <textarea
+          id="mensagem"
+          name="message"
+          maxlength="5000"
+          required
+          placeholder="Descreva sua dúvida ou solicitação..."></textarea>
+
+        <button id="botaoEnviar" type="submit">
+          Enviar solicitação
+        </button>
+
+        <div id="statusEnvio"
+             class="status"
+             role="status"
+             aria-live="polite"></div>
+      </form>
+
+      <div class="informacao">
+        <p>
+          Você também pode entrar em contato pelo e-mail:
+          <a href="mailto:contato@billhard.com.br">
+            contato@billhard.com.br
+          </a>
+        </p>
+        <p>
+          As informações enviadas serão utilizadas para
+          atendimento da sua solicitação.
+        </p>
+        <p>
+          <a href="../">Política de Privacidade</a>
+        </p>
+      </div>
     </section>
-
-    <!-- SOLICITAÇÃO PELA WEB -->
-
-    <section class="card">
-
-      <h2>Solicitar exclusão pela internet</h2>
-
-      <p>
-        Se você não consegue acessar o aplicativo
-        ou prefere solicitar a exclusão pela internet,
-        utilize nossa Central de Suporte.
-      </p>
-
-      <p>
-        Ao clicar no botão abaixo, você será
-        direcionado para o formulário de atendimento
-        do Billhard, onde poderá registrar sua
-        solicitação de exclusão de conta.
-      </p>
-
-      <p>
-        Para facilitar a identificação, informe
-        o nome e o endereço de e-mail associados
-        à sua conta.
-      </p>
-
-      <p>
-        Poderemos solicitar informações adicionais
-        para confirmar a titularidade da conta
-        antes de processar a exclusão.
-      </p>
-
-      <a
-        class="botao"
-        href="https://legal.billhard.com.br/suporte/?assunto=exclusao"
-      >
-        Solicitar exclusão de conta
-      </a>
-
-    </section>
-
-    <!-- DADOS EXCLUÍDOS E MANTIDOS -->
-
-    <section class="card">
-
-      <h2>Quais dados são excluídos ou mantidos?</h2>
-
-      <p>
-        O tratamento dos dados associados à conta
-        depende da natureza das informações e
-        das obrigações aplicáveis.
-      </p>
-
-      <ul>
-        <li>
-          <strong>Dados de autenticação:</strong>
-          os dados de acesso associados à conta
-          são excluídos quando a exclusão
-          é concluída.
-        </li>
-
-        <li>
-          <strong>Dados cadastrais:</strong>
-          informações pessoais associadas ao perfil
-          serão tratadas conforme o procedimento
-          de exclusão aplicável.
-        </li>
-
-        <li>
-          <strong>Registros de manutenção:</strong>
-          comentários, fotografias, vídeos,
-          anexos e históricos de manutenção
-          pertencentes ao ambiente organizacional
-          poderão permanecer armazenados conforme
-          as regras de retenção aplicáveis.
-        </li>
-
-        <li>
-          <strong>Obrigações legais:</strong>
-          determinadas informações poderão ser
-          mantidas quando existir uma obrigação
-          legal ou outra justificativa legítima.
-        </li>
-      </ul>
-
-      <div class="aviso">
-        <strong>Importante:</strong>
-        a exclusão da conta pode ser irreversível.
-        Os prazos de processamento, exclusão e
-        eventual retenção devem seguir a política
-        de privacidade e os procedimentos aplicáveis
-        ao serviço.
-      </div>
-
-    </section>
-
-    <!-- CONTATO -->
-
-    <section class="card">
-
-      <h2>Precisa de ajuda?</h2>
-
-      <p>
-        Nossa equipe está disponível para
-        esclarecer dúvidas relacionadas
-        à exclusão de conta e proteção de dados.
-      </p>
-
-      <p>
-        E-mail:
-        <a
-          class="email"
-          href="mailto:contato@billhard.com.br"
-        >
-          contato@billhard.com.br
-        </a>
-      </p>
-
-      <p>
-        <a href="https://legal.billhard.com.br/">
-          Consultar Política de Privacidade
-        </a>
-      </p>
-
-    </section>
-
   </main>
 
   <footer>
     © 2026 Billhard — Gestão e Tecnologia
   </footer>
 
+  <script>
+    const form = document.getElementById("formSuporte");
+    const botao = document.getElementById("botaoEnviar");
+    const status = document.getElementById("statusEnvio");
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      botao.disabled = true;
+      botao.textContent = "Enviando...";
+      status.className = "status";
+      status.textContent = "";
+
+      try {
+        const resposta = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (!resposta.ok) {
+          throw new Error("Falha no envio");
+        }
+
+        form.reset();
+        status.className = "status sucesso";
+        status.textContent =
+          "Solicitação enviada com sucesso! " +
+          "Nossa equipe recebeu sua mensagem.";
+
+      } catch (erro) {
+        status.className = "status erro";
+        status.textContent =
+          "Não foi possível enviar sua solicitação. " +
+          "Tente novamente ou entre em contato pelo e-mail " +
+          "contato@billhard.com.br.";
+      } finally {
+        botao.disabled = false;
+        botao.textContent = "Enviar solicitação";
+      }
+    });
+  </script>
 </body>
 </html>
